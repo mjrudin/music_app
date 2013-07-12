@@ -3,4 +3,4 @@
 1. In command line, go to project directory
 2. Type <tt>rake db:migrate</tt> in command line to generate the database
 3. Type <tt>rails server</tt> in command line
-4. In browser, go to <tt>http://localhost:3000/session/new</tt>
+4. In browser, go to <tt>http://localhost:3000/sessions/new</tt>
