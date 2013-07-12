@@ -1,0 +1,15 @@
+<% flash[:notices].try(:each) do |msg| %>
+  <%= msg %>
+<% end %>
+
+
+<%= form_for @band do |f|%>
+<%= f.label :name, 'Band Name' %>
+<%= f.text_field :name %><br>
+<%= f.submit %>
+<% end %>
+
+<form action= <%= session_url(User.find_by_session_token(session[:session_token])) %> method="post">
+  <input type= "hidden" name= "_method" value= "delete">
+  <input type="submit" value="Logout">
+</form>

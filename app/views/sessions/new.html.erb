@@ -1,0 +1,16 @@
+<h1>User Login</h1>
+<% flash[:notices].try(:each) do |msg| %>
+  <%= msg %>
+<% end %>
+<br>
+<form action= <%= sessions_url %> method="post">
+  <label for="email">Email</label>
+  <input type="text" name = "user[email]" id="email">
+
+  <label for="password">Password</label>
+  <input type="password" name = "user[password]" id="password"> <br>
+
+  <input type="submit" value="Login"> <br>
+
+  <a href = <%= new_user_url %>>New User? Click Here!</a>
+</form>

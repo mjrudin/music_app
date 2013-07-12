@@ -1,0 +1,14 @@
+<h1>Albums Index</h1>
+
+<ul>
+  <% @albums.each do |album| %>
+    <li>
+      <a href = <%= album_url(album.id) %>><%= "#{album.name}" %></a>
+    </li>
+  <% end %>
+</ul>
+
+<form action= <%= session_url(User.find_by_session_token(session[:session_token])) %> method="post">
+  <input type= "hidden" name= "_method" value= "delete">
+  <input type="submit" value="Logout">
+</form>

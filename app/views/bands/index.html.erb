@@ -1,0 +1,14 @@
+<h1>Bands Index</h1>
+
+<ul>
+  <% @bands.each do |band| %>
+    <li>
+      <a href = <%= band_url(band.id) %>><%= "#{band.name}" %></a>
+    </li>
+  <% end %>
+</ul>
+
+<form action= <%= session_url(User.find_by_session_token(session[:session_token])) %> method="post">
+  <input type= "hidden" name= "_method" value= "delete">
+  <input type="submit" value="Logout">
+</form>

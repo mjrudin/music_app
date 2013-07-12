@@ -1,0 +1,6 @@
+<h1>Album Editor</h1>
+<form action= <%= album_url %> method="post">
+  <input type="hidden" name="_method" value="put">
+<%= render :partial => "shared/album_form" %>
+  <input type="submit" value="Update Album">
+</form>

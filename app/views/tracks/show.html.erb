@@ -1,0 +1,17 @@
+<h1><%= "#{@track.name}" %></h1>
+
+<p>
+  <%= "#{@track.lyrics}" %>
+</p>
+
+<ul>
+  <li>
+    <label for="album">Album:</label>
+    <a href = "<%= album_url(@track.album.id) %>" id="band"><%= "#{@track.album.name}" %></a>
+  </li>
+  <li>
+    <label for="band">Band:</label>
+    <a href= "<%= band_url(@track.album.band.id) %>" id="band"> <%= "#{@track.album.band.name}" %></a>
+  </li>
+</ul>
+

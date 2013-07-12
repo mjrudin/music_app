@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Music</title>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= yield %>
+
+<p><h2><a href = <%= new_band_url %>>Create a Band</a><p>
+<p><h2><a href = <%= new_album_url %>>Create an Album</a><p>
+<p><h4><a href = <%= bands_url %>>All Bands</a><p>
+<a href = <%= albums_url %>>All Albums</a>
+
+</body>
+</html>

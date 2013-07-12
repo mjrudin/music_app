@@ -1,0 +1,32 @@
+<% flash[:notices].try(:each) do |msg| %>
+  <%= msg %>
+<% end %>
+<br>
+<input type="hidden"
+       name="authenticity_token"
+       value="<%= form_authenticity_token %>">
+
+  <label for="track_name">Track Name</label>
+  <input type="text" name="track[name]" id="track_name" value="<%=@track.name%>">
+
+  <label for="album">Album</label>
+  <select name="track[album_id]" id="album">
+  <% @albums.each do |album| %>
+  <option <%= 'selected' if album.id == @track.album_id %>
+    value =<%=album.id%>><%=album.name%></option>
+  <% end %>
+  </select>
+
+  <label for="type">Track Type</label>
+  <select name="track[track_type]" id="type">
+    <option <%= 'selected' if @track.track_type == 'regular' %> value =<%="regular"%>>Regular</option>
+    <option <%= 'selected' if @track.track_type == 'bonus' %> value =<%="bonus"%>>Bonus</option>
+  </select>
+
+  <label for="lyrics">Lyrics</label>
+  <textarea name="track[lyrics]" id="lyrics" ><%=@track.lyrics%></textarea>
+
+<form action= <%= session_url(User.find_by_session_token(session[:session_token])) %> method="post">
+  <input type= "hidden" name= "_method" value= "delete">
+  <input type="submit" value="Logout">
+</form>

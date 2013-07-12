@@ -1,0 +1,20 @@
+<h1><%= "#{@album.name}" %></h1>
+<a href = <%= edit_album_url(@album.id) %>>Edit</a>
+
+<% flash[:notices].try(:each) do |msg| %>
+  <%= msg %>
+<% end %>
+
+<ul>
+  <% @album.tracks.each do |track| %>
+    <li>
+      <a href = <%= track_url(track.id) %>><%= "#{track.name}" %></a>
+      <a href = <%= edit_track_url(track.id) %>>Edit</a>
+    </li>
+    <% end %>
+</ul>
+
+<form action= <%= session_url(User.find_by_session_token(session[:session_token])) %> method="post">
+  <input type= "hidden" name= "_method" value= "delete">
+  <input type="submit" value="Logout">
+</form>
